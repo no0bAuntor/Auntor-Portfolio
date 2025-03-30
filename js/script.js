@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
             {
                 title: 'Featured Project',
                 description: 'IoT Based Energy Meter Including Voltage Protection & Power Factor Correction',
-               image: '../IMG_2178.JPG',
+                image: '../IMG_2178.JPG', 
                 demoLink: '#',
                 codeLink: '#'
             }
