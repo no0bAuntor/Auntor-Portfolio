@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me - My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Contact page specific styles */
+      .page-title {
+        text-align: center;
+        padding: 60px 0 40px;
+      }
+      
+      .page-title h1 {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      
+      
+      .page-title p {
+        font-size: 1.2rem;
+        color: var(--text-color);
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .contact-info {
+        background-color: var(--card-bg);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .contact-info:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .contact-info h3::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .contact-info p {
+        margin-bottom: 30px;
+        line-height: 1.8;
+        color: var(--text-color);
+        font-size: 1.1rem;
+      }
+
+      .contact-details {
+        margin-bottom: 30px;
+      }
+
+      .contact-details-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+      
+      .contact-details-item:hover {
+        transform: translateX(5px);
+      }
+
+      .contact-details-item i {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary-color), #2a9d8f);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        font-size: 20px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(42, 157, 143, 0.3);
+      }
+
+      .contact-details-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+      }
+
+      .contact-details-content p {
+        margin: 0;
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+
+      .contact-social {
+        margin-top: 40px;
+      }
+
+      .contact-social h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
+
+      .contact-social-icons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .contact-social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--background-color);
+        color: var(--primary-color);
+        transition: all 0.3s ease;
+        font-size: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-social-icons a:hover {
+        background: linear-gradient(135deg, var(--primary-color), #2a9d8f);
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(42, 157, 143, 0.3);
+      }
+
+      .contact-form {
+        background-color: var(--card-bg);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .contact-form:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .contact-form h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        color: var(--primary-color);
+        position: relative;
+        padding-bottom: 10px;
+      }
+      
+      .contact-form h3::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        color: var(--primary-color);
+        font-size: 1rem;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 14px 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        font-size: 1rem;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+      }
+
+      textarea.form-control {
+        min-height: 180px;
+        resize: vertical;
+      }
+
+      .form-submit {
+        display: inline-block;
+        padding: 14px 35px;
+        background: linear-gradient(135deg, var(--primary-color), #2a9d8f);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(42, 157, 143, 0.3);
+      }
+
+      .form-submit:hover {
+        background: var(--background-color);
+        color: var(--primary-color);
+        box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4);
+        transform: translateY(-3px);
+      }
+
+      #form-status {
+        margin-top: 20px;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+      }
+
+      #form-status.error {
+        background-color: rgba(231, 111, 81, 0.1);
+        color: #e76f51;
+        border: 1px solid rgba(231, 111, 81, 0.3);
+      }
+
+      #form-status.sending {
+        background-color: rgba(255, 193, 7, 0.1);
+        color: #ffc107;
+        border: 1px solid rgba(255, 193, 7, 0.3);
+      }
+
+      #form-status.success {
+        background-color: rgba(40, 167, 69, 0.1);
+        color: #28a745;
+        border: 1px solid rgba(40, 167, 69, 0.3);
+      }
+
+      .map-section {
+        margin: 80px auto;
+        max-width: 1200px;
+        padding: 0 20px;
+      }
+
+      .map-section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        position: relative;
+        color: var(--primary-color);
+      }
+
+      .map-section h2::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: var(--primary-color);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      .map-container {
+        height: 500px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .map-container:hover {
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      @media (max-width: 992px) {
+        .contact-container {
+          gap: 30px;
+        }
+        
+        .contact-info,
+        .contact-form {
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .page-title h1 {
+          font-size: 2.5rem;
+        }
+        
+        .map-container {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .contact-info,
+        .contact-form {
+          padding: 25px;
+        }
+        
+        .contact-details-item i {
+          width: 45px;
+          height: 45px;
+          font-size: 18px;
+          margin-right: 15px;
+        }
+        
+        .form-submit {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <nav>
+          <div class="logo">
+            <h1>My Portfolio</h1>
+          </div>
+          <div class="nav-right">
+            <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="activities.html">Extra Curricular</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li class="theme-switch-li">
+              <!-- Theme switcher -->
+              <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <label for="theme-toggle" class="theme-switch-label">
+                  <i class="fas fa-sun"></i>
+                  <i class="fas fa-moon"></i>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <section class="page-title">
+        <h1>Get In Touch</h1>
+        <p>Have a project in mind or want to collaborate? I'd love to hear from you!</p>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section">
+        <div class="contact-container">
+          <div class="contact-info animate-on-scroll">
+            <h3>Contact Information</h3>
+            <p>
+              Feel free to reach out through any of these channels. Whether you have a question, 
+              want to discuss a project, or just say hello, I'll get back to you as soon as possible.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-details-item">
+                <i class="fas fa-phone-alt"></i>
+                <div class="contact-details-content">
+                  <h4>Phone</h4>
+                  <p>+880 1752543353</p>
+                </div>
+              </div>
+
+              <div class="contact-details-item">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-details-content">
+                  <h4>Email</h4>
+                  <p>mbauntor150@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="contact-details-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-details-content">
+                  <h4>Location</h4>
+                  <p>Sherpur, Bogura, Bangladesh</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <h3>Follow Me</h3>
+              <div class="contact-social-icons">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://web.facebook.com/auntor.ruet/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form animate-on-scroll">
+            <h3>Send a Message</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  class="form-control"
+                  placeholder="What's this about?"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  placeholder="Hello, I'd like to talk about..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="form-submit">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+
+              <div id="form-status"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Connect</h3>
+            <div class="social-icons">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p><i class="fas fa-envelope"></i> mbauntor150@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +880 1752543353</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Sherpur, Bogura, Bangladesh
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+      
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const statusElement = document.getElementById('form-status');
+        statusElement.textContent = 'Sending your message...';
+        statusElement.className = 'sending';
+        
+       
+        setTimeout(() => {
+          statusElement.textContent = 'Message sent successfully!';
+          statusElement.className = 'success';
+          e.target.reset();
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .gallery-section {
+        padding: 3rem 0;
+      }
+
+      .gallery-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .gallery-header h1 {
+        font-size: 42px;
+        color: var(--text-color);
+        margin-bottom: 15px;
+      }
+
+      .gallery-header p {
+        font-size: 18px;
+        color: var(--text-color);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .masonry-grid {
+        column-count: 3;
+        column-gap: 15px;
+        padding: 0 15px;
+      }
+
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px var(--shadow-color);
+        background-color: var(--card-bg);
+        transition: transform 0.3s ease;
+      }
+
+      .masonry-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .masonry-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        cursor: pointer;
+      }
+
+      .fullscreen-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .fullscreen-image {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 20px;
+        user-select: none;
+      }
+
+      .prev-btn {
+        left: 20px;
+      }
+
+      .next-btn {
+        right: 20px;
+      }
+
+      @media (max-width: 992px) {
+        .masonry-grid {
+          column-count: 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gallery-header h1 {
+          font-size: 32px;
+        }
+
+        .gallery-header p {
+          font-size: 16px;
+          padding: 0 20px;
+        }
+
+        .masonry-grid {
+          column-count: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <nav>
+          <div class="logo">
+            <h1>My Portfolio</h1>
+          </div>
+          <div class="nav-right">
+            <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="activities.html">Extra Curricular Activities</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="theme-switch-li">
+              <!-- Theme switcher -->
+              <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <label for="theme-toggle" class="theme-switch-label">
+                  <i class="fas fa-sun"></i>
+                  <i class="fas fa-moon"></i>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Gallery Section -->
+      <main class="page-transition">
+        <div class="gallery-header">
+          <h1>My Gallery</h1>
+          <p>
+            A visual journey through my projects, experiences, and creative
+            moments.
+          </p>
+        </div>
+
+        <div class="gallery-section">
+          <div class="masonry-grid" id="gallery"></div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://web.facebook.com/auntor.ruet/"
+                ><i class="fab fa-facebook"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-envelope"></i> mbauntor150@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +880 1752543353</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Sherpur, Bogura, Bangladesh
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+        </div>
+      </footer>
+
+      <!-- Fullscreen View -->
+      <div class="fullscreen-overlay" id="fullscreenOverlay">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <img class="fullscreen-image" id="fullscreenImage" src="" alt="" />
+        <span class="nav-btn prev-btn" id="prevBtn">&#10094;</span>
+        <span class="nav-btn next-btn" id="nextBtn">&#10095;</span>
+      </div>
+    </div>
+
+    <script>
+      // Theme switcher functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme) {
+        document.documentElement.classList.toggle(
+          "dark-theme",
+          currentTheme === "dark"
+        );
+        themeToggle.checked = currentTheme === "dark";
+      }
+
+      themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+          document.documentElement.classList.add("dark-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark-theme");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", function () {
+        this.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      const gallery = document.getElementById("gallery");
+
+      const imageCount = 57;
+      const imageIndices = Array.from({ length: imageCount }, (_, i) => i + 1);
+
+      // Shuffle the image indices
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+      shuffle(imageIndices); // Shuffle the indices
+
+      const heightClasses = ["short", "medium", "tall"];
+
+      imageIndices.forEach((index) => {
+        const item = document.createElement("div");
+        item.className = "masonry-item";
+
+        const randomHeight =
+          heightClasses[Math.floor(Math.random() * heightClasses.length)];
+        item.classList.add(randomHeight);
+
+        item.innerHTML = `
+          <img src="Gallery/gallery_image_${index}.jpg" alt="Gallery Image ${index}" data-index="${
+          index - 1
+        }">
+        `;
+        gallery.appendChild(item);
+      });
+
+      // Fullscreen functionality
+      const fullscreenOverlay = document.getElementById("fullscreenOverlay");
+      const fullscreenImage = document.getElementById("fullscreenImage");
+      const closeBtn = document.getElementById("closeBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      let currentIndex = 0;
+      const images = Array.from(document.querySelectorAll(".masonry-item img"));
+
+      // Open image in fullscreen
+      images.forEach((img) => {
+        img.addEventListener("click", function () {
+          currentIndex = parseInt(this.dataset.index);
+          fullscreenImage.src = this.src;
+          fullscreenOverlay.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      // Close fullscreen
+      closeBtn.addEventListener("click", function () {
+        fullscreenOverlay.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
+
+      function showImage(index) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+
+        currentIndex = index;
+        fullscreenImage.src = images[currentIndex].src;
+      }
+
+      prevBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (fullscreenOverlay.style.display === "flex") {
+          if (e.key === "Escape") {
+            fullscreenOverlay.style.display = "none";
+            document.body.style.overflow = "auto";
+          } else if (e.key === "ArrowLeft") {
+            showImage(currentIndex - 1);
+          } else if (e.key === "ArrowRight") {
+            showImage(currentIndex + 1);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

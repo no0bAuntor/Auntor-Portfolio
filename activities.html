@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Activities | Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      
+      .activity-section {
+        background-color: var(--card-bg);
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      
+      .activity-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px var(--shadow-color);
+      }
+      
+      .activity-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      
+      .activity-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+        font-size: 20px;
+      }
+      
+      .activity-section h2 {
+        color: var(--section-heading);
+        font-size: 24px;
+        margin: 0;
+      }
+      
+      .activity-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 15px;
+        padding-left: 70px;
+      }
+      
+      .activity-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+      }
+      
+      .activity-meta i {
+        color: var(--section-text);
+      }
+      
+      .activity-desc {
+        margin-bottom: 15px;
+        font-size: 15px;
+        line-height: 1.6;
+        padding-left: 70px;
+      }
+      
+      
+      .activities-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      
+      .activities-header h1 {
+        font-size: 42px;
+        color: var(--text-color);
+        margin-bottom: 15px;
+      }
+      
+      .activities-header p {
+        font-size: 18px;
+        color: var(--text-color);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      
+      @media (max-width: 768px) {
+        .activity-section {
+          padding: 20px;
+        }
+        
+        .activity-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+          margin-right: 15px;
+        }
+        
+        .activities-header h1 {
+          font-size: 32px;
+        }
+        
+        .activity-meta {
+          flex-direction: column;
+          gap: 8px;
+          padding-left: 55px;
+        }
+        
+        .activity-desc,
+        .activity-skills {
+          padding-left: 55px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <nav>
+          <div class="logo">
+            <h1>My Portfolio</h1>
+          </div>
+          <div class="nav-right">
+            <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="activities.html" class="active">Extra Curricular Activities</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="theme-switch-li">
+              <!-- Theme switcher -->
+              <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <label for="theme-toggle" class="theme-switch-label">
+                  <i class="fas fa-sun"></i>
+                  <i class="fas fa-moon"></i>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Activities Content -->
+      <main class="page-transition">
+        <div class="activities-header">
+          <h1>My Activities & Interests</h1>
+          <p>Beyond academics and work, these are the activities that help me grow, relax, and connect with others.</p>
+        </div>
+
+        <div class="activities-timeline">
+          <section class="activity-section">
+            <div class="activity-header">
+              <div class="activity-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h2> Coding Club Member</h2>
+            </div>
+            <div class="activity-meta">
+              <span><i class="fas fa-users"></i> College Coding Enthusiasts</span>
+              <span><i class="fas fa-calendar-alt"></i> 2022 - Present</span>
+              <span><i class="fas fa-clock"></i> 4 hours/week</span>
+            </div>
+            <div class="activity-desc">
+              <p>Participating in weekly coding challenges and workshops to improve my programming skills. Learning from seniors and collaborating with peers on small projects.</p>
+              <ul>
+                <li>Completed beginner Python programming course</li>
+                <li>Participated in 3 intra-university coding competitions</li>
+                <li>Helped organize a workshop on web development basics</li>
+              </ul>
+            </div>
+            
+          </section>
+
+          <section class="activity-section">
+            <div class="activity-header">
+              <div class="activity-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <h2>Community Tech Volunteer</h2>
+            </div>
+            <div class="activity-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Digital Literacy Initiative</span>
+              <span><i class="fas fa-calendar-alt"></i> Summer 2023</span>
+              <span><i class="fas fa-clock"></i> 20 hours total</span>
+            </div>
+            <div class="activity-desc">
+              <p>Volunteered to teach basic computer skills to children at a local community center. Helped set up computers and showed them how to use educational software.</p>
+              <ul>
+                <li>Taught 15 children how to use word processors</li>
+                <li>Set up 10 donated computers in the community lab</li>
+                <li>Created simple guides for using educational websites</li>
+              </ul>
+            </div>
+            
+          </section>
+
+          <section class="activity-section">
+            <div class="activity-header">
+              <div class="activity-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h2>Book Club Participant</h2>
+            </div>
+            <div class="activity-meta">
+              <span><i class="fas fa-users"></i> Campus Readers Society</span>
+              <span><i class="fas fa-calendar-alt"></i> 2022 - Present</span>
+              <span><i class="fas fa-clock"></i> 2 books/month</span>
+            </div>
+            <div class="activity-desc">
+              <p>Joining monthly book discussions to explore new genres and improve my reading habits. Starting with popular science and technology books.</p>
+              <ul>
+                <li>Read 15 books in my first year with the club</li>
+                <li>Presented about a favorite tech biography</li>
+                <li>Discovered new interests in science communication</li>
+              </ul>
+            </div>
+            
+          </section>
+
+          
+          <section class="activity-section">
+            <div class="activity-header">
+              <div class="activity-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h2>Robotics Workshop Attendee</h2>
+            </div>
+            <div class="activity-meta">
+              <span><i class="fas fa-university"></i> Engineering Students Association</span>
+              <span><i class="fas fa-calendar-alt"></i> March 2023</span>
+              <span><i class="fas fa-clock"></i> 12-hour workshop</span>
+            </div>
+            <div class="activity-desc">
+              <p>Attended a beginner robotics workshop where we learned to build simple automated systems using Arduino kits and basic sensors.</p>
+              <ul>
+                <li>Built my first line-following robot</li>
+                <li>Learned fundamentals of sensor integration</li>
+                <li>Worked in a team to solve robotics challenges</li>
+              </ul>
+            </div>
+            
+          </section>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://web.facebook.com/auntor.ruet/"
+                ><i class="fab fa-facebook"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-envelope"></i> mbauntor150@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +880 1752543353</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Sherpur, Bogura, Bangladesh
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

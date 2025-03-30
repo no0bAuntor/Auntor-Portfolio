@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me - My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <style>
+      .about-hero {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        margin-bottom: 80px;
+        padding: 50px 0;
+      }
+
+      .about-img {
+        flex: 0 0 300px;
+        position: relative;
+      }
+
+      .about-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px var(--shadow-color);
+        object-fit: cover;
+        aspect-ratio: 1;
+      }
+
+      .about-hero-text {
+        flex: 1;
+      }
+
+      .about-hero-text h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        line-height: 1.4;
+      }
+
+      .hero-subtitle {
+        font-size: 20px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .about-content {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .about-section {
+        margin-bottom: 60px;
+      }
+
+      .about-section h3 {
+        font-size: 28px;
+        margin-bottom: 25px;
+        color: var(--text-color);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .about-section h3:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+
+      .about-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--text-color);
+        margin-bottom: 20px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .skill-category {
+        background-color: var(--card-bg);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+      }
+
+      .skill-category h4 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: var(--text-color);
+      }
+
+      .skill-category ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .skill-category li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .skill-category li i {
+        color: var(--primary-color);
+        width: 20px;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      .skill-category li:before {
+        display: none;
+      }
+
+
+      .about-cta {
+        text-align: center;
+        padding: 50px 0;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        margin-top: 60px;
+      }
+
+      .about-cta h3 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: var(--text-color);
+      }
+
+      .about-cta p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: var(--text-color);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 50px 0;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: var(--primary-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+      }
+
+      .timeline-item {
+        position: relative;
+        width: 50%;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px var(--shadow-color);
+      }
+
+      .timeline-date {
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .timeline-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: var(--timeline-subtitle-color);
+        font-weight: 600;
+      }
+
+      .timeline-subtitle {
+        font-size: 14px;
+        color: var(--timeline-subtitle-color);
+        margin-bottom: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      .timeline-content p {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-color);
+        border: 4px solid var(--background-color);
+        border-radius: 50%;
+        top: 25px;
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(odd)::after {
+        right: -10px;
+      }
+
+      .timeline-item:nth-child(even)::after {
+        left: -10px;
+      }
+
+      @media (max-width: 768px) {
+        .about-hero {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .about-hero-text h2 {
+          font-size: 28px;
+        }
+
+        .about-section h3 {
+          font-size: 24px;
+        }
+
+        .skills-grid,
+        .projects-highlight {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline::after {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item:nth-child(odd),
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+
+        .timeline-item::after {
+          left: 21px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <nav>
+          <div class="logo">
+            <h1>My Portfolio</h1>
+          </div>
+          <div class="nav-right">
+            <div class="menu-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="activities.html">Extra Curricular Activities</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="theme-switch-li">
+              <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle" />
+                <label for="theme-toggle" class="theme-switch-label">
+                  <i class="fas fa-sun"></i>
+                  <i class="fas fa-moon"></i>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- About Section -->
+      <section class="about">
+        <!-- Hero Section -->
+        <div class="about-hero">
+          <div class="about-img animate-on-scroll">
+            <img src="me.jpg" alt="Mutasam Billah Auntor" />
+          </div>
+          <div class="about-hero-text animate-on-scroll">
+            <h2>I create engaging and responsive web experiences</h2>
+            <p class="hero-subtitle">
+              Frontend Developer & Embedded Systems Engineer
+            </p>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="about-content">
+          <div class="about-section animate-on-scroll">
+            <h3>About Me</h3>
+            <p>
+              I am Mutasam Billah Auntor, a passionate Frontend Developer and
+              Embedded Systems Engineer with expertise in creating responsive
+              and user-friendly web interfaces. My journey in technology
+              combines the creativity of web design with the technical precision
+              of embedded systems development.
+            </p>
+          </div>
+
+          <!-- Professional Background -->
+          <div class="about-section animate-on-scroll">
+            <h3>Professional Background</h3>
+            <p>
+              Currently pursuing my Bachelor's degree in Electronics and
+              Telecommunication Engineering at Rajshahi University of
+              Engineering and Technology, I've developed expertise in frontend
+              development and embedded systems. My experience includes creating
+              responsive web applications, designing user interfaces, and
+              working on various hardware projects.
+            </p>
+          </div>
+
+          <!-- Skills & Expertise -->
+          <div class="about-section animate-on-scroll">
+            <h3>Skills & Expertise</h3>
+            <div class="skills-grid">
+              <div class="skill-category">
+                <h4>Frontend Development</h4>
+                <ul>
+                  <li><i class="devicon-html5-plain colored"></i> HTML</li>
+                  <li><i class="devicon-css3-plain colored"></i> CSS</li>
+                  <li>
+                    <i class="devicon-javascript-plain colored"></i> JavaScript
+                  </li>
+                  <li><i class="fas fa-desktop"></i> Responsive Design</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4>Programming Languages</h4>
+                <ul>
+                  <li>
+                    <i class="devicon-javascript-plain colored"></i> JavaScript
+                  </li>
+                  <li><i class="devicon-cplusplus-plain colored"></i> C++</li>
+                  <li><i class="devicon-python-plain colored"></i> Python</li>
+                </ul>
+              </div>
+              <div class="skill-category">
+                <h4>Tools & Technologies</h4>
+                <ul>
+                  <li>
+                    <i class="devicon-arduino-plain colored"></i> Arduino IDE
+                  </li>
+                  <li><i class="fas fa-microchip"></i> PCB Design</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Insights -->
+          <div class="about-section animate-on-scroll">
+            <h3>What Drives Me</h3>
+            <p>
+              My passion for technology stems from the endless possibilities it
+              offers to solve real-world problems. I'm particularly fascinated
+              by the intersection of hardware and software, where we can create
+              intelligent systems that make a difference in people's lives. When
+              I'm not coding or designing circuits, I enjoy exploring new
+              technologies, contributing to open-source projects, and sharing my
+              knowledge with the tech community.
+            </p>
+          </div>
+          <!-- Journey Section -->
+          <div class="about-section animate-on-scroll">
+            <h3>My Journey</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <span class="timeline-date">2018</span>
+                  <h4 class="timeline-title">School Science Club</h4>
+                  <p class="timeline-subtitle">Active Member</p>
+                  <p>
+                    Participated in various science competitions and exhibitions
+                    as a member of the school's science club.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <span class="timeline-date">2018</span>
+                  <h4 class="timeline-title">English Language Club</h4>
+                  <p class="timeline-subtitle">Active Member</p>
+                  <p>
+                    Enhanced communication skills and participated in debate
+                    competitions through the English Language Club.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <span class="timeline-date">2019</span>
+                  <h4 class="timeline-title">College Computer Club</h4>
+                  <p class="timeline-subtitle">Active Member</p>
+                  <p>
+                    Engaged in programming competitions and tech workshops as a
+                    member of the college's computer club.
+                  </p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-content">
+                  <span class="timeline-date">2019</span>
+                  <h4 class="timeline-title">College Robotics Club</h4>
+                  <p class="timeline-subtitle">Active Member</p>
+                  <p>
+                    Participated in robotics competitions and hands-on projects
+                    through the college's robotics club.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Call to Action -->
+          <div class="about-cta animate-on-scroll">
+            <h3>Let's Build Something Amazing Together!</h3>
+            <p>
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision.
+            </p>
+            <a href="contact.html" class="btn primary-btn">Get In Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-envelope"></i> mbauntor150@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +880 1752543353</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Sherpur, Bogura, Bangladesh
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
